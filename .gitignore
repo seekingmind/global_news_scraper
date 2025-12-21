@@ -1,0 +1,265 @@
+# ============================================
+# Python 通用忽略项
+# ============================================
+
+# 字节码文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C扩展
+*.so
+
+# 分发/打包
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# 单元测试/覆盖率报告
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+.hypothesis/
+
+# 翻译文件
+*.mo
+*.pot
+
+# Django相关（如果项目包含Django）
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask相关（如果项目包含Flask）
+instance/
+.webassets-cache
+
+# ============================================
+# Scrapy 特定忽略项
+# ============================================
+
+# Scrapy爬取的数据
+*.json
+*.jsonl
+*.jl
+*.csv
+*.xml
+
+# 但保留示例配置文件
+!config/*.json
+!config/news_sources.json
+
+# Scrapy日志
+*.log
+
+# Scrapy缓存
+.scrapy/
+
+# ============================================
+# 虚拟环境
+# ============================================
+
+venv/
+ENV/
+env/
+virtualenv/
+.venv/
+env.bak/
+venv.bak/
+
+# Pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# ============================================
+# IDE 和编辑器
+# ============================================
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Spyder
+.spyderproject
+.spyproject
+
+# ============================================
+# 操作系统
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# 项目特定
+# ============================================
+
+# 日志文件
+logs/
+*.log
+log/
+
+# 数据目录（根据需要调整）
+data/
+data/*
+!data/.gitkeep
+
+# 导出的数据文件
+exports/
+output/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 配置文件（如果包含敏感信息）
+# config/local_settings.py
+# config/secrets.py
+# .env
+# .env.local
+
+# 密钥和证书
+*.pem
+*.key
+*.cert
+*.crt
+
+# 备份文件
+*.bak
+*.backup
+*_backup
+
+# 压缩文件
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ============================================
+# 云服务和容器
+# ============================================
+
+# Docker
+docker-compose.override.yml
+
+# AWS
+.aws/
+
+# Google Cloud
+.gcloud/
+
+# ============================================
+# 其他
+# ============================================
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 私有笔记
+notes/
+TODO.md
+NOTES.md
+
+# 测试生成的文件
+test_output/
+
+# 文档构建
+docs/_build/
+site/
+
+# mypy类型检查
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre类型检查
+.pyre/
+
+# pytype静态类型分析
+.pytype/
+
+# Cython调试符号
+cython_debug/
+
+data/
