@@ -1,0 +1,147 @@
+{
+    "cnn": {
+      "name": "CNN",
+      "domain": "cnn.com",
+      "country": "US",
+      "language": "en",
+      "enabled": true,
+      "description": "CNN - Cable News Network",
+      
+      "list_pages": [
+        {
+          "url": "https://edition.cnn.com/world",
+          "category": "world"
+        },
+        {
+          "url": "https://edition.cnn.com/politics",
+          "category": "politics"
+        },
+        {
+          "url": "https://edition.cnn.com/business",
+          "category": "business"
+        },
+        {
+          "url": "https://edition.cnn.com/health",
+          "category": "health"
+        }
+      ],
+      
+      "selectors": {
+        "article_links": {
+          "css": [
+            "a.container__link::attr(href)",
+            "a[data-link-type='article']::attr(href)"
+          ],
+          "xpath": [
+            "//a[contains(@class, 'container__link')]/@href"
+          ],
+          "priority": "css"
+        },
+        
+        "title": {
+          "css": [
+            "h1#maincontent::text",
+            "h1.headline__text::text",
+            "h1.pg-headline::text"
+          ],
+          "xpath": [
+            "//h1[@id='maincontent']/text()",
+            "//h1[contains(@class, 'headline')]/text()"
+          ],
+          "priority": "css",
+          "required": true
+        },
+        
+        "content": {
+          "css": [
+            "div.article__content p::text",
+            "div.l-container p::text",
+            "section.zn-body__paragraph p::text"
+          ],
+          "xpath": [
+            "//div[contains(@class, 'article__content')]//p/text()",
+            "//div[contains(@class, 'l-container')]//p/text()"
+          ],
+          "priority": "css",
+          "required": true,
+          "join": "\n"
+        },
+        
+        "summary": {
+          "css": [
+            "meta[name='description']::attr(content)",
+            "meta[property='og:description']::attr(content)"
+          ],
+          "priority": "css",
+          "required": false
+        },
+        
+        "author": {
+          "css": [
+            "span.byline__name::text",
+            "a.metadata__byline__author::text",
+            "div.metadata__byline a::text"
+          ],
+          "xpath": [
+            "//span[contains(@class, 'byline__name')]/text()",
+            "//a[contains(@class, 'byline__author')]/text()"
+          ],
+          "priority": "css",
+          "required": false
+        },
+        
+        "publish_time": {
+          "css": [
+            "div.timestamp::text",
+            "meta[property='article:published_time']::attr(content)",
+            "time::attr(datetime)"
+          ],
+          "xpath": [
+            "//div[contains(@class, 'timestamp')]/text()",
+            "//meta[@property='article:published_time']/@content"
+          ],
+          "priority": "css",
+          "required": false,
+          "parser": "cnn_date"
+        },
+        
+        "update_time": {
+          "css": [
+            "meta[property='article:modified_time']::attr(content)"
+          ],
+          "parser": "iso8601",
+          "required": false
+        },
+        
+        "images": {
+          "css": [
+            "div.image__container img::attr(src)",
+            "figure.media img::attr(src)",
+            "div.el__image img::attr(data-src-large)"
+          ],
+          "xpath": [
+            "//div[contains(@class, 'image')]//img/@src",
+            "//figure[contains(@class, 'media')]//img/@src"
+          ],
+          "priority": "css",
+          "required": false,
+          "filter": "valid_image"
+        },
+        
+        "tags": {
+          "css": [
+            "a.metadata__link::text",
+            "div.metadata__topics a::text"
+          ],
+          "required": false
+        }
+      },
+      
+      "url_patterns": {
+        "article": "^https://edition\\.cnn\\.com/\\d{4}/\\d{2}/\\d{2}/",
+        "exclude": ["videos", "gallery", "live-news", "interactive", "specials"]
+      },
+      
+      "date_format": "cnn_date"
+    }
+  }
